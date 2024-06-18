@@ -32,7 +32,10 @@ export function Cobe() {
       }
     })
     setTimeout(() => canvasRef.current.style.opacity = '1')
-    return () => globe.destroy()
+    return () => { 
+      globe.destroy();
+      window.removeEventListener('resize', onResize);
+    }
   }, [])
   return <div style={{
     width: '100%',
@@ -57,4 +60,4 @@ export function Cobe() {
 
 Scaling and moving the globe on the canvas.
 
-[View source of this example on GitHub](https://github.com/shuding/cobe/blob/main/website/pages/docs/showcases/scaled.mdx)
+[View source of this example on GitHub](https://github.com/shuding/cobe/blob/main/website/pages/docs/showcases/scaled.mdx?plain=1)
